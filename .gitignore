@@ -1,0 +1,17 @@
+**/bin/
+**/obj/
+research/
+artifacts/
+VERIFICATION.md
+.vs/
+.idea/
+*.user
+*.suo
+*.log
+*.jsonl
+diagnostics*.json
+.env
+.env.*
+*.pfx
+*.p12
+*.key

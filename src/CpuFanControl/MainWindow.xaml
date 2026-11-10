@@ -1,0 +1,29 @@
+<Window x:Class="CpuFanControl.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:local="clr-namespace:CpuFanControl"
+ Title="CPU / GPU 风扇控制" Width="900" Height="606" ResizeMode="CanMinimize"
+ WindowStartupLocation="CenterScreen" Background="{StaticResource Page}" Foreground="{StaticResource Ink}"
+ FontFamily="{StaticResource UiFont}" Loaded="WindowLoaded" Closing="WindowClosing">
+ <Grid Margin="30,24,30,20">
+  <Grid.RowDefinitions>
+   <RowDefinition Height="Auto"/><RowDefinition Height="24"/>
+   <RowDefinition Height="*"/><RowDefinition Height="20"/>
+   <RowDefinition Height="Auto"/>
+  </Grid.RowDefinitions>
+  <Grid>
+   <TextBlock Text="风扇控制" FontSize="26" FontWeight="SemiBold"/>
+   <TextBlock Text="HASEE CNP6S" Foreground="{StaticResource Muted}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
+  </Grid>
+  <Grid Grid.Row="2">
+   <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="49"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+   <local:FanPanel x:Name="CpuPanel" Channel="Cpu" ApplyRequested="ApplyRequested" AutoRequested="AutoRequested"/>
+   <Border Grid.Column="1" Background="{StaticResource Line}" Width="1"/>
+   <local:FanPanel x:Name="GpuPanel" Grid.Column="2" Channel="Gpu" ApplyRequested="ApplyRequested" AutoRequested="AutoRequested"/>
+  </Grid>
+  <Grid Grid.Row="4">
+   <TextBlock Text="CLEVO ACPI" FontSize="11" Foreground="{StaticResource Muted}"/>
+   <TextBlock x:Name="UpdatedText" Text="—" FontSize="11" Foreground="{StaticResource Muted}" HorizontalAlignment="Right"/>
+  </Grid>
+ </Grid>
+</Window>
